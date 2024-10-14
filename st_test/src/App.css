@@ -1,0 +1,37 @@
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+.App-header {
+  background-color: #282c34;
+  padding: 20px;
+  color: white;
+}
+
+main {
+  margin-top: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+/* 모바일 화면에 최적화된 스타일 */
+@media (max-width: 600px) {
+  .App {
+    padding: 10px;
+  }
+
+  .App-header {
+    padding: 10px;
+  }
+
+  main {
+    margin-top: 10px;
+  }
+
+  section {
+    margin-bottom: 10px;
+  }
+}
