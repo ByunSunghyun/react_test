@@ -5,6 +5,7 @@ import Autocomplete from "./Autocomplete";
 
 function AddStock() {
   const [date, setDate] = useState("");
+  const [selectedStock, setSelectedStock] = useState(null);
 
   const suggestions = {
     Apple: "AAPL",
@@ -19,24 +20,39 @@ function AddStock() {
   const handleDateChange = (e) => {
     setDate(e.target.value);
   };
+
+  const handleStockClick = (stock) => {
+    setSelectedStock(stock);
+  };
+
   return (
     <div>
       <HamburgerMenu />
       <Link to="/">홈으로 돌아가기</Link>
       <div>
-        <main>
-          <label htmlFor="stock-date">날짜 선택:</label>
-          <input
-            type="date"
-            id="stock-date"
-            value={date}
-            onChange={handleDateChange}
-          />
-          <p></p>
-          <Autocomplete suggestions={suggestions} />{" "}
-          {/* 자동 완성 컴포넌트 사용 */}
-        </main>
+        <label htmlFor="stock-date">날짜 선택:</label>
+        <input
+          type="date"
+          id="stock-date"
+          value={date}
+          onChange={handleDateChange}
+        />
       </div>
+      <Autocomplete suggestions={suggestions} />
+      <ul>
+        {Object.keys(suggestions).map((stock) => (
+          <li key={stock} onClick={() => handleStockClick(stock)}>
+            {stock}
+            {selectedStock === stock && (
+              <div>
+                <button onClick={() => alert(`Button clicked for ${stock}`)}>
+                  버튼
+                </button>
+              </div>
+            )}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
