@@ -24,10 +24,13 @@ function HamburgerMenu() {
         <div className="dropdown-menu">
           <button onClick={() => handleButtonClick("/")}>홈</button>
           <button onClick={() => handleButtonClick("/newpage")}>
-            새로운 페이지
+            New Page
           </button>
           <button onClick={() => handleButtonClick("/addstock")}>
             AddStock
+          </button>
+          <button onClick={() => handleButtonClick("/deletestock")}>
+            DeleteStock
           </button>
         </div>
       )}
