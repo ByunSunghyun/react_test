@@ -4,6 +4,7 @@ import Home from "./components/Home";
 import NewPage from "./components/NewPage1";
 import AddStock from "./components/AddStock";
 import DeleteStock from "./components/DeleteStock";
+import SignIn from "./components/SignIn";
 import "./App.css";
 //import './components/Home.css';
 
@@ -15,6 +16,7 @@ function App() {
         <Route path="/newpage" element={<NewPage />} />
         <Route path="/addstock" element={<AddStock />} />
         <Route path="/deletestock" element={<DeleteStock />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>
   );
