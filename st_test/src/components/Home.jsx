@@ -48,7 +48,7 @@ function Home() {
         <HamburgerMenu />
         {}
         <h1>모바일용 웹사이트</h1>
-        <p>이 웹사이트는 React로 만들어졌습니다.</p>
+        <p>홈화면입니다.</p>
       </header>
       <main>
         <section>
