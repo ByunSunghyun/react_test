@@ -2,43 +2,39 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function SignIn() {
+function SignUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loginMessage, setLoginMessage] = useState("");
+  const [signUpMessage, setSignUpMessage] = useState("");
   const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault(); // 기본 폼 제출 동작을 막습니다.
 
     try {
-      // 서버로 로그인 요청을 보냅니다.
-      const response = await axios.post("http://localhost:8080/api/signin", {
+      // 서버로 회원가입 요청을 보냅니다.
+      const response = await axios.post("http://localhost:8080/api/register", {
         email,
         password,
       });
 
-      // 로그인 성공 시
-      if (response.data === "로그인 성공") {
-        alert("로그인 성공");
-        navigate("/home"); // 홈페이지로 리디렉션합니다.
+      // 회원가입 성공 시
+      if (response.data === "회원가입 성공") {
+        alert("회원가입 성공");
+        navigate("/"); // sign in page 로 리디렉션합니다.
       } else {
-        // 로그인 실패 시
-        setLoginMessage(response.data);
+        // 회원가입 실패 시
+        setSignUpMessage(response.data);
       }
     } catch (error) {
       // 서버 오류 또는 네트워크 오류 처리
-      setLoginMessage("서버 오류가 발생했습니다. 나중에 다시 시도해주세요.");
+      setSignUpMessage("서버 오류가 발생했습니다. 나중에 다시 시도해주세요.");
     }
-  }
-
-  function handleSignUp() {
-    navigate("/signup"); // 회원가입 페이지로 이동
   }
 
   return (
     <div className="signin-container">
-      <h2>로그인</h2>
+      <h2>회원가입</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">이메일:</label>
@@ -60,14 +56,11 @@ function SignIn() {
             required
           />
         </div>
-        {loginMessage && <p className="loginMessage">{loginMessage}</p>}
-        <button type="submit">로그인</button>
-        <button type="button" onClick={handleSignUp}>
-          회원가입
-        </button>
+        {signUpMessage && <p className="signupMessage">{signUpMessage}</p>}
+        <button type="submit">회원가입</button>
       </form>
     </div>
   );
 }
 
-export default SignIn;
+export default SignUp;

@@ -10,8 +10,9 @@ import NewPage from "./components/NewPage1";
 import AddStock from "./components/AddStock";
 import DeleteStock from "./components/DeleteStock";
 import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+
 import "./App.css";
-//import './components/Home.css';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/addstock" element={<AddStock />} />
         <Route path="/deletestock" element={<DeleteStock />} />
         <Route path="/signin" element={<SignIn />} />
+        <Route path="/signup" element={<SignUp />} />
       </Routes>
     </Router>
   );
