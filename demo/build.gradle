@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+// SSL 인증서 오류로 추가
+import javax.net.ssl.SSLContext
+import javax.net.ssl.TrustManager
+import javax.net.ssl.X509TrustManager
+import java.security.cert.X509Certificate
+
+task configureSSL {
+    doLast {
+        SSLContext sc = SSLContext.getInstance("SSL")
+        sc.init(null, [new X509TrustManager() {
+            X509Certificate[] getAcceptedIssuers() { null }
+            void checkClientTrusted(X509Certificate[] certs, String authType) { }
+            void checkServerTrusted(X509Certificate[] certs, String authType) { }
+        }] as TrustManager[], new java.security.SecureRandom())
+        SSLContext.setDefault(sc)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    dependsOn configureSSL
+}
+
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
