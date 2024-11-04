@@ -5,12 +5,12 @@ import {
   Routes,
   Navigate,
 } from "react-router-dom";
-import Home from "./components/Home";
-import NewPage from "./components/NewPage1";
-import AddStock from "./components/AddStock";
-import DeleteStock from "./components/DeleteStock";
-import SignIn from "./components/SignIn";
-import SignUp from "./components/SignUp";
+import Home from "./components/Home/Home";
+import NewPage from "./components/NewPage";
+import AddStock from "./components/AddStock/AddStock";
+import DeleteStock from "./components/DeleteStock/DeleteStock";
+import SignIn from "./components/SignIn/SignIn";
+import SignUp from "./components/SignUp/SignUp";
 
 import "./App.css";
 

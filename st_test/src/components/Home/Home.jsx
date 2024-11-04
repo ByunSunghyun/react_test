@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import HamburgerMenu from "./HamburgerMenu";
+import HamburgerMenu from "../HamburgerMenu/HamburgerMenu"; // 상대 경로 수정
 import "./Home.css"; // CSS 파일 임포트
-import Autocomplete from "./Autocomplete";
+import Autocomplete from "../Autocomplete/Autocomplete"; // 상대 경로 수정
 
 const suggestions = {
   Apple: "AAPL",
@@ -43,27 +43,13 @@ function Home() {
   };
 
   return (
-    <div className="App">
+    <div className={`App ${isMobile ? "mobile" : ""}`}>
       <header className="App-header">
         <HamburgerMenu />
-        {}
-        <h1>모바일용 웹사이트</h1>
-        <p>홈화면입니다.</p>
+        <Autocomplete suggestions={suggestions} />
+        <button onClick={() => handleButtonClick("/signin")}>Sign In</button>
+        <button onClick={() => handleButtonClick("/signup")}>Sign Up</button>
       </header>
-      <main>
-        <section>
-          <h2>소개</h2>
-          <p>
-            이것은 {isMobile ? "모바일" : "PC"} 화면에 최적화된 예시
-            웹사이트입니다.
-          </p>
-          <button onClick={() => handleButtonClick("/newpage")}>
-            새로운 페이지로 이동
-          </button>
-        </section>
-        <Autocomplete suggestions={suggestions} />{" "}
-        {/* 자동 완성 컴포넌트 사용 */}
-      </main>
     </div>
   );
 }
