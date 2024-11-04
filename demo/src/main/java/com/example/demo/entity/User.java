@@ -16,6 +16,17 @@ public class User {
     private Long id;
     private String email;
     private String password;
+    private int isMember;
+
+    // 기본 생성자
+    public User() {
+    }
+
+    // 이메일과 비밀번호를 받는 생성자
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
 
     // Getters and Setters
     public Long getId() {
@@ -40,5 +51,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public int getIsMember() {
+        return isMember;
+    }
+
+    public void setIsMember(int isMember) {
+        this.isMember = isMember;
     }
 }
