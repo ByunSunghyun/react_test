@@ -28,16 +28,6 @@ public class User {
         this.password = password;
     }
 
-    // 기본 생성자
-    public User() {
-    }
-
-    // 이메일과 비밀번호를 받는 생성자
-    public User(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
-
     // Getters and Setters
     public Long getId() {
         return id;
