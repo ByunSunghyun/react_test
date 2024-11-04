@@ -34,7 +34,7 @@ public class UserController {
         if (existingUser != null) {
             return "이미 존재하는 이메일입니다.";
         }
-        userService.saveUser(user);
+        userService.saveUser(user.getEmail(), user.getPassword());
         return "회원가입 성공";
     }
 }
