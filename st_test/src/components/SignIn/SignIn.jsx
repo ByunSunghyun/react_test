@@ -13,7 +13,7 @@ function SignIn() {
 
     try {
       // 서버로 로그인 요청을 보냅니다.
-      const response = await axios.post("http://localhost:8080/api/signin", {
+      const response = await axios.post("http://localhost:8080/api/signIn", {
         email,
         password,
       });

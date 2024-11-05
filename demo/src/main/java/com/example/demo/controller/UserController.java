@@ -12,7 +12,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @PostMapping("/signin")
+    @PostMapping("/signIn")
     public String signIn(@RequestBody User user) {
         boolean isAuthenticated = userService.authenticate(user.getEmail(), user.getPassword());
         if (isAuthenticated) {

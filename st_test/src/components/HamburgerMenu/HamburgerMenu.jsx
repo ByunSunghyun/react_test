@@ -22,7 +22,7 @@ function HamburgerMenu() {
       </div>
       {menuOpen && (
         <div className="dropdown-menu">
-          <button onClick={() => handleButtonClick("/")}>홈</button>
+          <button onClick={() => handleButtonClick("/home")}>홈</button>
           <button onClick={() => handleButtonClick("/newpage")}>
             New Page
           </button>
