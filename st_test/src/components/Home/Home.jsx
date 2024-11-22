@@ -2,17 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import HamburgerMenu from "../HamburgerMenu/HamburgerMenu"; // 상대 경로 수정
 import "./Home.css"; // CSS 파일 임포트
-import Autocomplete from "../Autocomplete/Autocomplete"; // 상대 경로 수정
-
-const suggestions = {
-  Apple: "AAPL",
-  Alphabet: "GOOG",
-  Tesla: "TSLA",
-  Microsoft: "MSFT",
-  Amazon: "AMZN",
-  "Samsung Electronics": "005930.KS",
-  "SK Hynix": "000660.KS",
-};
 
 function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -46,9 +35,8 @@ function Home() {
     <div className={`App ${isMobile ? "mobile" : ""}`}>
       <header className="App-header">
         <HamburgerMenu />
-        <Autocomplete suggestions={suggestions} />
-        <button onClick={() => handleButtonClick("/signin")}>Sign In</button>
-        <button onClick={() => handleButtonClick("/signup")}>Sign Up</button>
+        <button onClick={() => handleButtonClick("/addstock")}>Add Stock</button>
+        <button onClick={() => handleButtonClick("/deletestock")}>Delete Stock</button>
       </header>
     </div>
   );

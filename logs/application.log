@@ -1,0 +1,36 @@
+[INFO ] 2024-11-22 15:17:25 [restartedMain] DemoApplication - Starting DemoApplication using Java 1.8.0_202 on DESKTOP-M9TAGK4 with PID 33324 (G:\react_test\demo\build\classes\java\main started by user in G:\react_test)
+[INFO ] 2024-11-22 15:17:25 [restartedMain] DemoApplication - No active profile set, falling back to 1 default profile: "default"
+[INFO ] 2024-11-22 15:17:25 [restartedMain] DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[INFO ] 2024-11-22 15:17:25 [restartedMain] DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[INFO ] 2024-11-22 15:17:26 [restartedMain] RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[INFO ] 2024-11-22 15:17:26 [restartedMain] RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 44 ms. Found 1 JPA repository interfaces.
+[INFO ] 2024-11-22 15:17:28 [restartedMain] TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+[INFO ] 2024-11-22 15:17:28 [restartedMain] Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+[INFO ] 2024-11-22 15:17:28 [restartedMain] StandardService - Starting service [Tomcat]
+[INFO ] 2024-11-22 15:17:28 [restartedMain] StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.68]
+[INFO ] 2024-11-22 15:17:28 [restartedMain] [/] - Initializing Spring embedded WebApplicationContext
+[INFO ] 2024-11-22 15:17:28 [restartedMain] ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2274 ms
+[INFO ] 2024-11-22 15:17:28 [restartedMain] HikariDataSource - HikariPool-1 - Starting...
+[INFO ] 2024-11-22 15:17:28 [restartedMain] HikariDataSource - HikariPool-1 - Start completed.
+[INFO ] 2024-11-22 15:17:28 [restartedMain] H2ConsoleAutoConfiguration - H2 console available at '/h2-console'. Database available at 'jdbc:h2:file:./data/testdb'
+[INFO ] 2024-11-22 15:17:28 [restartedMain] LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+[INFO ] 2024-11-22 15:17:28 [restartedMain] Version - HHH000412: Hibernate ORM core version 5.6.12.Final
+[INFO ] 2024-11-22 15:17:29 [restartedMain] Version - HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[INFO ] 2024-11-22 15:17:29 [restartedMain] Dialect - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+[INFO ] 2024-11-22 15:17:29 [restartedMain] JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[INFO ] 2024-11-22 15:17:29 [restartedMain] LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+[WARN ] 2024-11-22 15:17:30 [restartedMain] UserDetailsServiceAutoConfiguration - 
+
+Using generated security password: dc0aa65f-25de-495d-a210-093a2065469f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+[WARN ] 2024-11-22 15:17:30 [restartedMain] JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[INFO ] 2024-11-22 15:17:30 [restartedMain] DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7d6a9b73, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@15aaf1d6, org.springframework.security.web.context.SecurityContextPersistenceFilter@75df188b, org.springframework.security.web.header.HeaderWriterFilter@1b802817, org.springframework.web.filter.CorsFilter@642c2c7a, org.springframework.security.web.authentication.logout.LogoutFilter@618b489c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4fb08f93, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@542cadb0, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@934826, org.springframework.security.web.session.SessionManagementFilter@2618fd54, org.springframework.security.web.access.ExceptionTranslationFilter@2cb7491a, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74c76ffd]
+[INFO ] 2024-11-22 15:17:30 [restartedMain] OptionalLiveReloadServer - LiveReload server is running on port 35729
+[INFO ] 2024-11-22 15:17:30 [restartedMain] Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+[INFO ] 2024-11-22 15:17:30 [restartedMain] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO ] 2024-11-22 15:17:30 [restartedMain] DemoApplication - Started DemoApplication in 5.579 seconds (JVM running for 6.453)
+[INFO ] 2024-11-22 15:18:02 [http-nio-8080-exec-1] [/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+[INFO ] 2024-11-22 15:18:02 [http-nio-8080-exec-1] DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+[INFO ] 2024-11-22 15:18:02 [http-nio-8080-exec-1] DispatcherServlet - Completed initialization in 0 ms
