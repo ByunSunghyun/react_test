@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import "./Autocomplete.css"; // CSS 파일 임포트
 
@@ -8,6 +8,7 @@ function Autocomplete() {
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState("");
+  const suggestionsRef = useRef(null);
 
   useEffect(() => {
     // 데이터를 가져오는 함수
@@ -26,6 +27,16 @@ function Autocomplete() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    if (suggestionsRef.current && activeSuggestionIndex !== null) {
+      const activeElement =
+        suggestionsRef.current.children[activeSuggestionIndex];
+      if (activeElement) {
+        activeElement.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }
+  }, [activeSuggestionIndex]);
 
   const handleChange = (e) => {
     const userInput = e.currentTarget.value.toLowerCase();
@@ -73,7 +84,7 @@ function Autocomplete() {
   };
 
   const suggestionsListComponent = showSuggestions && (
-    <ul className="suggestions">
+    <ul className="suggestions" ref={suggestionsRef}>
       {filteredSuggestions.length ? (
         filteredSuggestions.map((suggestion, index) => {
           let className;
