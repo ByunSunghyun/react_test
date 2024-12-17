@@ -2,3 +2,4 @@ qodana.yaml
 .idea/
 .vscode/
 data/
+logs/

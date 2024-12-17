@@ -1,19 +1,39 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./Autocomplete.css"; // CSS 파일 임포트
 
-function Autocomplete({ suggestions }) {
+function Autocomplete() {
+  const [suggestions, setSuggestions] = useState([]); // 빈 배열로 초기화
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [activeSuggestionIndex, setActiveSuggestionIndex] = useState(0);
   const [showSuggestions, setShowSuggestions] = useState(false);
   const [userInput, setUserInput] = useState("");
 
-  const handleChange = (e) => {
-    const userInput = e.currentTarget.value;
+  useEffect(() => {
+    // 데이터를 가져오는 함수
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:8080/api/getStockList"
+        ); // API 엔드포인트를 통해 데이터 가져오기
+        const data = response.data;
+        //console.log("Fetched data:", data); // 데이터 확인을 위한 로그 출력
+        setSuggestions(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
 
-    const filteredSuggestions = Object.entries(suggestions).filter(
-      ([key, value]) =>
-        key.toLowerCase().includes(userInput) ||
-        value.toLowerCase().includes(userInput)
+    fetchData();
+  }, []);
+
+  const handleChange = (e) => {
+    const userInput = e.currentTarget.value.toLowerCase();
+
+    const filteredSuggestions = suggestions.filter(
+      (suggestion) =>
+        suggestion.symbol.toLowerCase().includes(userInput) ||
+        suggestion.companyName.toLowerCase().includes(userInput)
     );
 
     setFilteredSuggestions(filteredSuggestions);
@@ -31,36 +51,38 @@ function Autocomplete({ suggestions }) {
 
   const handleKeyDown = (e) => {
     if (e.keyCode === 13) {
-      // Enter key
-      setUserInput(filteredSuggestions[activeSuggestionIndex]);
-      setActiveSuggestionIndex(0);
-      setShowSuggestions(false);
+      // Enter 키
+      if (filteredSuggestions[activeSuggestionIndex]) {
+        setUserInput(filteredSuggestions[activeSuggestionIndex].symbol);
+        setActiveSuggestionIndex(0);
+        setShowSuggestions(false);
+      }
     } else if (e.keyCode === 38) {
-      // Up arrow
+      // 위쪽 방향키
       if (activeSuggestionIndex === 0) {
         return;
       }
       setActiveSuggestionIndex(activeSuggestionIndex - 1);
     } else if (e.keyCode === 40) {
-      // Down arrow
-      if (activeSuggestionIndex - 1 === filteredSuggestions.length) {
+      // 아래쪽 방향키
+      if (activeSuggestionIndex === filteredSuggestions.length - 1) {
         return;
       }
       setActiveSuggestionIndex(activeSuggestionIndex + 1);
     }
   };
 
-  const suggestionsListComponent = showSuggestions && userInput && (
+  const suggestionsListComponent = showSuggestions && (
     <ul className="suggestions">
       {filteredSuggestions.length ? (
-        filteredSuggestions.map(([key, value], index) => {
+        filteredSuggestions.map((suggestion, index) => {
           let className;
           if (index === activeSuggestionIndex) {
             className = "suggestion-active";
           }
           return (
-            <li className={className} key={key} onClick={handleClick}>
-              {key} ({value})
+            <li className={className} key={suggestion.id} onClick={handleClick}>
+              {suggestion.symbol} ({suggestion.companyName})
             </li>
           );
         })
