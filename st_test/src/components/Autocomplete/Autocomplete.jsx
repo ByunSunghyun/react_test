@@ -14,9 +14,10 @@ function Autocomplete() {
     // 데이터를 가져오는 함수
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8080/api/getStockList"
-        ); // API 엔드포인트를 통해 데이터 가져오기
+        // const response = await axios.get(
+        //   "http://localhost:8080/api/getStockList"
+        // ); // API 엔드포인트를 통해 데이터 가져오기
+        const response = await axios.get("/api/getStockList"); // 상대 경로 사용
         const data = response.data;
         //console.log("Fetched data:", data); // 데이터 확인을 위한 로그 출력
         setSuggestions(data);

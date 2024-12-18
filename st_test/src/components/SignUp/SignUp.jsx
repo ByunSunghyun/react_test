@@ -13,7 +13,7 @@ function SignUp() {
 
     try {
       // 서버로 회원가입 요청을 보냅니다.
-      const response = await axios.post("http://localhost:8080/api/register", {
+      const response = await axios.post("/api/register", {
         email,
         password,
       });
