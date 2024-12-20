@@ -5,6 +5,8 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+
 @RestController
 @RequestMapping("/api")
 public class UserController {
@@ -30,5 +32,15 @@ public class UserController {
         }
         userService.saveUser(user.getEmail(), user.getPassword());
         return "회원가입 성공";
+    }
+
+    @GetMapping("/getIp")
+    public String getClientIP(HttpServletRequest request) {
+        String ipAddress = request.getHeader("X-Forwarded-For");
+        if (ipAddress == null || ipAddress.isEmpty() || "unknown".equalsIgnoreCase(ipAddress)) {
+            ipAddress = request.getRemoteAddr();
+        }
+        System.out.println("IP Address: " + ipAddress);
+        return ipAddress;
     }
 }
